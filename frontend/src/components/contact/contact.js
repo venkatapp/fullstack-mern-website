@@ -18,7 +18,7 @@ const Contact = () => {
         if (!portfolioData) {
                 return <div>Loading...</div>;
             }
-      const {email, Phone, location}=portfolioData.contact;
+      const {email, Phone, location}=portfolioData.contact || {};
       const {socialLink}=portfolioData;
 
     // 3. Generic Change Handler
@@ -139,7 +139,7 @@ const validate = () => {
                                             </div>
                                             <div className='col- d-grid'>
                                             <p className="text mb-0 mr-0 ml-5 text-gray">Email</p>
-                                            <p className='text-light mb-0 ms-3'>{email}</p>
+                                            <p className='text-light mb-0 ms-3'>{email || 'Email not provided'}</p>
                                             </div>  
                                     </a>
                                 </li>   
@@ -173,7 +173,7 @@ const validate = () => {
                             <p className='pt-2'>Follow Me</p>
                                 <div>
                                     {
-                                        socialLink.map((item, index) => {
+                                        socialLink?.map((item, index) => {
                                             return (
                                                 <a key={index} href={item.url} className="btn btn-md btn-dark m-1 rounded-corner">
                                                     <i className={`be bi-${item.icon}`}></i>
