@@ -18,7 +18,7 @@ AdminJS.registerAdapter({
 });
 
 const DEFAULT_ADMIN = {
-    email: 'venkateshni24@gmail.com',
+    email: 'kreativehussain@gmail.com',
     password: '987654321'
 }
 
