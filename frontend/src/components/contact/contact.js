@@ -5,13 +5,7 @@ import { useSelector } from 'react-redux';
 
 const Contact = () => {
       const { portfolioData } = useSelector((state) => state.root);
-        if (!portfolioData) {
-                return <div>Loading...</div>;
-            }
-      const {email, Phone, location}=portfolioData.contact;
-      const {socialLink}=portfolioData;
-
-const [formData, setFormData] = useState({ 
+      const [formData, setFormData] = useState({ 
         name: '', 
         lastName: '',   
         subject: '', 
@@ -20,6 +14,12 @@ const [formData, setFormData] = useState({
     });
     const [status, setStatus] = useState('');
     const [errors, setErrors] = useState({});
+
+        if (!portfolioData) {
+                return <div>Loading...</div>;
+            }
+      const {email, Phone, location}=portfolioData.contact;
+      const {socialLink}=portfolioData;
 
     // 3. Generic Change Handler
     const handleChange = (e) => {
