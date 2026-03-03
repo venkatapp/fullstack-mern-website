@@ -1,0 +1,30 @@
+/* Add to your custom CSS file (e.g., style.css) */
+/* Smooth transition for the background color change */
+#main-nav {
+  transition: background-color 0.5s ease-in-out;
+  background-color: transparent; /* Initial transparent background */
+}
+
+/* Class added via JavaScript when scrolled */
+#main-nav.scrolled {
+  background-color: rgba(247, 247, 247,1); /* Solid or semi-transparent color on scroll */
+}
+#main-nav.scrolled{
+  padding: 0 ;
+}
+#main-nav.scrolled .navbar-nav .nav-link {
+  color: rgba(0, 0, 0,1) !important; /* Solid or semi-transparent color on scroll */
+}
+
+/* Ensure content is not hidden behind the fixed navbar */
+.nav-link {
+  font-size: 1.2rem !important;
+}
+
+#main-nav.scrolled .navbar-nav .navbar-toggler{
+  background-color: rgba(0, 0, 0,1) !important; /* Solid or semi-transparent color on scroll */
+}
+
+button.navbar-toggler.collapsed {
+    background: #000;
+}

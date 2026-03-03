@@ -1,0 +1,43 @@
+.heroGredBackground {
+    background-color: red;
+    /* For browsers that do not support gradients */
+    background-image: linear-gradient(to right, #000000, #101727, #000);
+    height: 100vh;
+}
+
+.welcome-text {
+    color: #00bc7d;
+}
+
+span.hero-title-gradient-text{
+    font-size: 2rem;
+    background: -webkit-linear-gradient(#fff, #fff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+span.hero-title-gradient-text-2 {
+    font-size: 2rem;
+    background: -webkit-linear-gradient(280deg, #00d393, #4fa4ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+span.hero-title-gradient-text-1{
+    font-size: 2rem;
+    background: -webkit-linear-gradient(#3c40c6, #ef5777);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+span.hero-title-gradient-text-0 {
+    font-size: 2rem;
+    background: -webkit-linear-gradient(280deg, #c27aff, #bf4e8f);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.custom-into-btn{
+    background-color: #00bc7d !important;
+    color:#fff;
+    border: #00d393 !important;
+}

@@ -1,0 +1,39 @@
+.about-bg {
+    background-color: #101828;
+}
+
+.about-core-skills-cards {
+    background-color: #080c14 !important;
+    color: #fff !important;
+    border: 1px solid rgba(7, 199, 146, 0.3) !important;
+}
+
+.about-card-icon {
+    color: #00d492;
+}
+
+.about-core-skills-cards:hover {
+    border-color: #00d492;
+    border-width: 1px !important;
+}
+
+.about-card-skills {
+    background-color: rgba(7, 199, 146, 0.3) !important;
+    color: #00d492 !important;
+    border: 1px solid #00d492 !important;
+    cursor: none;
+}
+
+.about-card-skills:hover {
+    background-color: none !important;
+    color: #00d492 !important;
+    border: 1px solid #00d492 !important;
+}
+
+.gradient-bar {
+  background-image: linear-gradient(to right, #00d492, oklch(.707 .165 254.624));
+    width: calc(.25rem * 24);
+    height: calc(.25rem * 1);
+    margin: auto;
+}
+
