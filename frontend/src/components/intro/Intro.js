@@ -40,7 +40,7 @@ function Intro() {
                         <a href='#projects' className="btn btn-primary btn-sm custom-into-btn " data-aos="fade-left" data-aos-easing="ease-in-sine">View My Work</a>
                         <div>
                             {
-                                socialLink.map((item, index) => {
+                                socialLink?.map((item, index) => {
                                     return (
                                         <a key={index} href={item.url} className="btn btn-md btn-dark m-1 rounded-circle" data-aos="fade-right" data-aos-easing="ease-in-sine">
                                             <i className={`be bi-${item.icon}`}></i>
