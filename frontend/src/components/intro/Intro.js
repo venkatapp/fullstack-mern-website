@@ -9,7 +9,7 @@ function Intro() {
     const { portfolioData } = useSelector((state) => state.root);
     const { intro } = portfolioData;
     const { firstName, captions, description, welcomeText } = intro || {};
-    const splitCaptions = captions.split(',');
+    const splitCaptions = captions?.split(' ') || [];
 
     const { socialLink } = portfolioData;
     const [currentIndex, setCurrentIndex]=useState(0);
