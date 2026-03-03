@@ -30,7 +30,7 @@ const LatestProjects = () => {
 
                     <div className="row row-cols-1 row-cols-sm-2 row-cols-md-8 g-5">
                         {
-                            sortProjects.map((project, index) => (
+                            sortProjects?.map((project, index) => (
                                     <div key={index} className="col d-flex align-items-stretch">
                                         <div className="card shadow-sm custom-project-card-bg h-100" data-aos="flip-right" data-aos-easing="ease-in-sine">
                                             <div className="position-relative">
@@ -68,7 +68,7 @@ const LatestProjects = () => {
                      <h3 className="fw-light pt-5 mt-5 text-center" data-aos="fade-up" data-aos-easing="ease-in-sine">Other Projects</h3>
                     <div className="mt-2 row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 pb-5">
                         {
-                            otherProjects.map((project, index) => (
+                            otherProjects?.map((project, index) => (
                                     <div key={index} className="col d-flex align-items-stretch">
                                         <div className="card h-100 shadow-sm custom-project-card-bg" data-aos="fade-up" data-aos-easing="ease-in-sine">
                                             <div className="position-relative">

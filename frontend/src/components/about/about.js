@@ -6,8 +6,8 @@ import '../about/about.css';
 const About = () => {
   const { portfolioData } = useSelector((state) => state.root);
   const { about } = portfolioData;
-  const { heading, description, skills } = about;
-  const skill = skills.split(',');
+  const { heading, description, skills } = about || {};
+  const skill = skills?.split(',') || [];
   const { coreSkills } = portfolioData;
   return (
     <div className='container-fluid about-bg pb-5'>
@@ -26,7 +26,7 @@ const About = () => {
               <h2 data-aos="fade-up" data-aos-easing="ease-in-sine">{heading}</h2>
               <p data-aos="fade-right" data-aos-easing="ease-in-sine">{description}</p>
               {
-                skill.map((item, index) => (
+                skill?.map((item, index) => (
                   <button key={index} className="btn cursor-not-allowed btn-primary rounded-pill mx-2 about-card-skills mb-3 mb-md-2 mb-lg-0" data-aos="fade-right" data-aos-easing="ease-in-sine">{item.trim()}</button>
                 ))
               }

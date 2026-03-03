@@ -20,7 +20,7 @@ const renderItems = (items) => {
     return (
         <div className="card-body">
             <ul className="list-unstyled px-3"> {/* Added list-unstyled to remove bullets */}
-                {items.map((item, index) => {
+                {items?.map((item, index) => {
                     // This picks one color from your array based on the index
                     const barColor = gredientColors[index % gredientColors.length];
                     
