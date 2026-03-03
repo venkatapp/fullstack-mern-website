@@ -6,9 +6,9 @@ import '../skills/skills.css';
 const CategorizedList = () => {
     const { portfolioData } = useSelector((state) => state.root);
     const { skills } = portfolioData;
-    const categoryAItems = skills.filter(item => item.category === 'Graphic Design');
-    const categoryBItems = skills.filter(item => item.category === 'UIUX');
-    const categoryCItems = skills.filter(item => item.category === 'Ai Tools & Others');
+    const categoryAItems = skills?.filter(item => item.category === 'Graphic Design');
+    const categoryBItems = skills?.filter(item => item.category === 'UIUX');
+    const categoryCItems = skills?.filter(item => item.category === 'Ai Tools & Others');
 
     //gredient color classes 
     const gredientColors=['blue', 'cyan', 'green', 'yellow', 'pink', 'gray', 'orrange'];
