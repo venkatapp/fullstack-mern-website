@@ -5,32 +5,42 @@ import { useSelector } from 'react-redux';
 
 const Contact = () => {
       const { portfolioData } = useSelector((state) => state.root);
-      if (!portfolioData || !portfolioData.contact) {
-        return <div className="p-5 text-center">Loading contact info...</div>;
-    }
+        if (!portfolioData) {
+                return <div>Loading...</div>;
+            }
       const {email, Phone, location}=portfolioData.contact;
       const {socialLink}=portfolioData;
 
-    const [formData, setFormData] = useState({ name: '', lastName: '', subject: '', email: '', message: '' });
+const [formData, setFormData] = useState({ 
+        name: '', 
+        lastName: '',   
+        subject: '', 
+        email: '', 
+        message: '' 
+    });
     const [status, setStatus] = useState('');
-    const [errors, setErrors]=useState({})
+    const [errors, setErrors] = useState({});
 
+    // 3. Generic Change Handler
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormData({ ...formData, [name]: value });
+        
+        // Clear error when user starts typing again
+        if (errors[name]) {
+            setErrors({ ...errors, [name]: '' });
+        }
+    };
 
-    const validate=()=>{
-        let tempErrors={};
-        if(!formData.name) tempErrors.name = 'Name is required';
-        if(!formData.lastName) tempErrors.lastName = 'LastName is required';
-        if(!formData.subject) tempErrors.subject = 'Subject cannot be empty';
-        if(!formData.message) tempErrors.message = 'message cannot be empty';
-
-        // Regex for basic email validation
-        const emailRegex = /\S+@\S+\.\S+/;
-        if (!emailRegex.test(formData.email)) tempErrors.email = "Email is invalid";
-
+const validate = () => {
+        let tempErrors = {};
+        if (!formData.name) tempErrors.name = "Name is required";
+        if (!formData.email) tempErrors.email = "Email is required";
+        else if (!/\S+@\S+\.\S+/.test(formData.email)) tempErrors.email = "Email is invalid";
+        
         setErrors(tempErrors);
         return Object.keys(tempErrors).length === 0;
-
-    }
+    };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -71,22 +81,22 @@ const Contact = () => {
                                         <div className="row">
                                                 <div className="col-md-6 form-group mb-2">
                                                 <label htmlFor="name" className="col-form-label">Name *</label>
-                                                <input type="text" className="form-control" name="name" id="name" placeholder="Your name" value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} required/>
+                                                <input type="text" className="form-control" name="name" id="name" placeholder="Your name" value={formData.name} onChange={handleChange} required/>
                                                 {errors.name && <p style={{color: 'red'}}>{errors.name}</p>}
                                             </div>
                                             <div className="col-md-6 form-group mb-3">
                                                 <label htmlFor="last Name" className="col-form-label">Last Name *</label>
-                                                <input type="text" className="form-control" name="Last Name" id="Last Name" placeholder="Last Name" value={formData.lastName} onChange={(e) => setFormData({ ...formData, lastName: e.target.value })} required />
+                                                <input type="text" className="form-control" name="Last Name" id="Last Name" placeholder="Last Name" value={formData.lastName} onChange={handleChange} required />
                                                 {errors.lastName && <p style={{color: 'red'}}>{errors.lastName}</p>}
                                             </div>
                                             <div className="col-md-12 form-group mb-3">
                                                 <label htmlFor="email" className="col-form-label">Email *</label>
-                                                <input type="text" className="form-control" name="email" id="email" placeholder="Your email" value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} required pattern="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"/>
+                                                <input type="text" className="form-control" name="email" id="email" placeholder="Your email" value={formData.email} onChange={handleChange} required pattern="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"/>
                                                 {errors.email && <p style={{color: 'red'}}>{errors.email}</p>}
                                             </div>
                                             <div className="col-md-12 mb-3">
                                                 <label htmlFor="subject" className="col-form-label">Subject</label>
-                                                <input type="text" className="form-control" name="subject" id="subject" placeholder="Subject" value={formData.subject} onChange={(e) => setFormData({ ...formData, subject: e.target.value })} />
+                                                <input type="text" className="form-control" name="subject" id="subject" placeholder="Subject" value={formData.subject} onChange={handleChange} />
                                                 {errors.subject && <p style={{color: 'red'}}>{errors.subject}</p>}
                                             </div>
                                         </div>
@@ -94,7 +104,7 @@ const Contact = () => {
                                         <div className="row">
                                             <div className="col-md-12 mb-3">
                                                 <label htmlFor="message" className="col-form-label">Message *</label>
-                                                <textarea className="form-control" name="message" id="message" cols="30" rows="4" placeholder="Write your message" value={formData.message} onChange={(e) => setFormData({ ...formData, message: e.target.value })}></textarea>
+                                                <textarea className="form-control" name="message" id="message" cols="30" rows="4" placeholder="Write your message" value={formData.message} onChange={handleChange}></textarea>
                                                 {errors.message && <p style={{color: 'red'}}>{errors.message}</p>}
                                             </div>
                                             <div className="col-md-12 d-grid">
