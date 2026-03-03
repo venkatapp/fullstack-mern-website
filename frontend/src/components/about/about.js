@@ -35,7 +35,7 @@ const About = () => {
           <div className='col-md-6'>
             <div className="row">
               {
-                coreSkills.map((item, index) => (
+                coreSkills?.map((item, index) => (
                   <div key={index} className="col-md-6 mb-4">
                     <div className="card h-100 about-core-skills-cards p-2" data-aos="zoom-in" data-aos-easing="ease-in-sine">
                       <div className="card-body">
