@@ -42,6 +42,11 @@ function App() {
     AOS.refresh();
   }, []);
 
+  // If the data is missing, don't let ANY sub-components load
+if (!portfolioData) {
+    return <div className="loader">Loading Portfolio...</div>;
+}
+
   return (
     <div>
       {loader ? <loader /> : null}

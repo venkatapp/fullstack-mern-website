@@ -20,7 +20,9 @@ function Intro() {
                 <h1 className="display-1 fw-normal text-white" data-aos="fade-up" data-aos-easing="ease-in-sine">{firstName}</h1>
                 <div data-aos="fade-up" data-aos-easing="ease-in-sine">
                     <div className='intro-typed-text-one'>
-                       <span className='hero-title-gradient-text' >I'm a</span> {' '}
+                       <span className='hero-title-gradient-text' >I'm a</span> 
+                       {/* {' '} */}
+                       <div dangerouslySetInnerHTML={{ __html: description || "" }} />
                         <ReactTyped
                         strings={splitCaptions} // Pass the array directly here
                         typeSpeed={100}
