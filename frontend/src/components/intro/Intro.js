@@ -9,7 +9,7 @@ function Intro() {
     const { portfolioData } = useSelector((state) => state.root);
     const { intro } = portfolioData;
     const { firstName, captions, description, welcomeText } = intro || {};
-    const splitCaptions = captions?.split(' ') || [];
+    // const splitCaptions = captions?.split(' ') || [];
 
     const { socialLink } = portfolioData;
     const [currentIndex, setCurrentIndex]=useState(0);
@@ -20,11 +20,9 @@ function Intro() {
                 <h1 className="display-1 fw-normal text-white" data-aos="fade-up" data-aos-easing="ease-in-sine">{firstName}</h1>
                 <div data-aos="fade-up" data-aos-easing="ease-in-sine">
                     <div className='intro-typed-text-one'>
-                       <span className='hero-title-gradient-text' >I'm a</span> 
-                       {/* {' '} */}
-                       <div dangerouslySetInnerHTML={{ __html: description || "" }} />
+                       <span className='hero-title-gradient-text' >I'm a</span> {' '}
                         <ReactTyped
-                        strings={splitCaptions} // Pass the array directly here
+                        strings={portfolioData?.intro?.captions?.split('') || ['loading...']} // Pass the array directly here
                         typeSpeed={100}
                         backSpeed={50}
                        loop
