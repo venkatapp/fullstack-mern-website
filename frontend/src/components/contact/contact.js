@@ -5,8 +5,10 @@ import { useSelector } from 'react-redux';
 
 const Contact = () => {
       const { portfolioData } = useSelector((state) => state.root);
-      const { contact } = portfolioData;
-      const {email, Phone, location}=contact;
+      if (!portfolioData || !portfolioData.contact) {
+        return <div className="p-5 text-center">Loading contact info...</div>;
+    }
+      const {email, Phone, location}=portfolioData.contact;
       const {socialLink}=portfolioData;
 
     const [formData, setFormData] = useState({ name: '', lastName: '', subject: '', email: '', message: '' });

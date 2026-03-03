@@ -18,6 +18,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   const { portfolioData, loader } = useSelector((state) => state.root);
+
   const dispatch = useDispatch();
 
   const getProtfolioData = async () => {
